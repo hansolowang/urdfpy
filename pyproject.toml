@@ -1,0 +1,47 @@
+[project]
+name = "urdfpy"
+version = "0.0.0"
+authors = [
+  {name = "Matthew Matl"}
+]
+dependencies = [
+    'lxml',             # For XML DOM Tree
+    'networkx==3.4.2',    # For joint graph
+    'numpy',            # Numpy
+    'pillow',           # For texture image loading
+    'pycollada==0.6',   # COLLADA (.dae) mesh loading via trimesh
+    'pyrender==0.0.1', # For visualization
+    'scipy',            # For trimesh, annoyingly
+    'six',              # Python 2/3 compatability
+    'trimesh',          # Mesh geometry loading/creation/saving
+]
+
+[project.optional-dependencies]
+dev = [
+    'flake8',            # Code formatting checker
+    'pre-commit',        # Pre-commit hooks
+    'pytest',            # Code testing
+    'pytest-cov',        # Coverage testing
+    'tox',               # Automatic virtualenv testing
+]
+docs = [
+    'sphinx',            # General doc library
+    'sphinx_rtd_theme',  # RTD theme for sphinx
+    'sphinx-automodapi'  # For generating nice tables
+]
+
+
+
+[tool.setuptools]
+packages = ["urdfpy"]
+
+[tool.ruff]
+ignore = ["D103", "D405"]
+
+[tool.ruff.lint]
+select = [
+    "UP", # pyupgrade
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
